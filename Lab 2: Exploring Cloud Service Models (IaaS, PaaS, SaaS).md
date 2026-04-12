@@ -30,32 +30,58 @@ The Shared Responsibility Model shifts accordingly: in IaaS, the customer manage
   - Name: `IaaS-Lab-Instance`
   - AMI: Amazon Linux 2023
   - Instance type: t2.micro
-  - Key pair: Create a new key pair and download the .pem file
+  - Key pair: Create a new key pair `CloudLab` and download the .pem file
   - Network settings: Allow SSH (port 22) and HTTP (port 80)
+    - VPC: `default`
+    - Create a security group
+      - Name: My Firewall
+      - Description: Allowing SSH and HTTP Services
+      - Inbound rule: SSH, TCP, 22, Anywhere and HTTP, TCP, 80, Anywhere
   - Storage: 8 GB gp3 (default)
-
->*Screenshot: EC2 instance configuration summary page. [Mandatory]*
+    
 
 **Step 3:** Click "Launch Instance" and wait for the instance state to show "Running".
 
-*Screenshot: EC2 dashboard showing running instance with public IP [Mandatory]*
+>*Screenshot: EC2 dashboard showing running instance with public IP [Mandatory]*
+
+> Sample:
+
+<img width="1467" height="716" alt="Screenshot 2026-04-12 at 10 30 32 AM" src="https://github.com/user-attachments/assets/385b85b1-f81f-4870-8df0-c01e86c3f23b" />
+
 
 **Step 4:** Connect to the instance via SSH:
 
+Linux/Unix
 ```bash name=connect.sh
 chmod 400 your-key.pem
 ssh -i "your-key.pem" ec2-user@<public-ip-address>
 ```
+
+PowerSheel
+```
+icacls .\your-key.pem /inheritance:r
+icacls .\your-key.pem /grant:r "$env:USERNAME:R"
+```
+
+<img width="979" height="122" alt="Screenshot 2026-04-12 at 10 37 32 AM" src="https://github.com/user-attachments/assets/56654d6d-123b-4951-b3b0-b116d2edd018" />
+
+<img width="976" height="277" alt="Screenshot 2026-04-12 at 10 38 00 AM" src="https://github.com/user-attachments/assets/dcafbe9c-1284-4495-8dbc-1f68af39c3c6" />
+
 
 **Step 5:** Install a web server to demonstrate full control over the instance:
 
 >Note: Before running the command below, make sure to replace the Full Name and Class Roll Number with your own details [Mandatory].
 
 ```bash name=setup-httpd.sh
-sudo yum update -y
 sudo yum install httpd -y
+```
+```bash name=setup-httpd.sh
 sudo systemctl start httpd
+```
+```bash name=setup-httpd.sh
 sudo systemctl enable httpd
+```
+```bash name=setup-httpd.sh
 echo "<html>
 <head><title>EC2 Page</title></head>
 <body>
@@ -66,7 +92,11 @@ echo "<html>
 </html>" | sudo tee /var/www/html/index.html
 ```
 
-*Screenshot: Browser showing the web page served from the EC2 public IP [Mandatory]*
+> *Screenshot: Browser showing the web page served from the EC2 public IP [Mandatory]*
+
+> Sample:
+
+> <img width="1470" height="302" alt="Screenshot 2026-04-12 at 10 42 16 AM" src="https://github.com/user-attachments/assets/44083df4-8b77-4cab-9f55-8623fa6f8985" />
 
 
 **Part B: PaaS: Deploying with Elastic Beanstalk**
@@ -76,11 +106,11 @@ echo "<html>
   - Platform: Python (or Node.js)
   - Application code: Select "Sample application"
 
-*Screenshot: Elastic Beanstalk application creation page [Mandatory]*
 
 **Step 7:** Click "Create Application" and wait for the environment to launch (5 to 10 minutes). Elastic Beanstalk automatically provisions the EC2 instance, load balancer, and Auto Scaling group.
 
 *Screenshot: Elastic Beanstalk dashboard showing environment health as "OK" [Mandatory]*
+
 
 **Step 8:** Click the environment URL to view the deployed sample application.
 
