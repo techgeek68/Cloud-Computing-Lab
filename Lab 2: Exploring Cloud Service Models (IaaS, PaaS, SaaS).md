@@ -72,9 +72,9 @@ echo "<html>
 **Part B: PaaS: Deploying with Elastic Beanstalk**
 
 **Step 6:** Navigate to Elastic Beanstalk and click "Create Application". Configure the following:
-- Application name: `PaaS-Lab-App`
-- Platform: Python (or Node.js)
-- Application code: Select "Sample application"
+  - Application name: `PaaS-Lab-App`
+  - Platform: Python (or Node.js)
+  - Application code: Select "Sample application"
 
 *Screenshot: Elastic Beanstalk application creation page [Mandatory]*
 
@@ -113,6 +113,6 @@ echo "<html>
 
 **Discussion and Conclusion:**
 
-This lab demonstrated the three fundamental cloud service models in practice. EC2 (IaaS) provided full control over the virtual machine, requiring manual OS configuration and software installation. Elastic Beanstalk (PaaS) abstracted the infrastructure layer completely; only the application code was supplied, and the platform handled provisioning, load balancing, and scaling. WorkDocs (SaaS) required no technical setup at all. This progression reflects the core trade-off between control and convenience. Organizations select the appropriate model based on their needs: IaaS for maximum flexibility, PaaS for faster development cycles, and SaaS for ready-to-use solutions.
+This lab demonstrated the three fundamental cloud service models in practice. EC2 (IaaS) provided full control over the virtual machine, requiring manual OS configuration and software installation. Elastic Beanstalk (PaaS) abstracted the infrastructure layer completely; only the application code was supplied, and the platform handled provisioning, load balancing, and scaling. WorkDocs (SaaS) required no technical setup at all. This progression reflects the core trade off between control and convenience. Organizations select the appropriate model based on their needs: IaaS for maximum flexibility, PaaS for faster development cycles, and SaaS for ready to use solutions.
 
 ---
