@@ -13,23 +13,21 @@ Cloud service models define the level of abstraction and management responsibili
 
 **Infrastructure as a Service (IaaS):** 
 
-Provides raw computing resources such as virtual machines, storage, and networks. The user manages the OS, middleware, runtime, and applications. AWS Example: Amazon EC2.
+  Provides raw computing resources such as virtual machines, storage, and networks. The user manages the OS, middleware, runtime, and applications. In IaaS, the customer manages almost everything above the hypervisor. For example: Amazon EC2.
 
 **Platform as a Service (PaaS):** 
 
-Provides a managed platform for application development and deployment. The provider handles infrastructure, OS, and runtime. Users focus on code and data. AWS Example: AWS Lambda.
+  Provides a managed platform for application development and deployment. The provider handles infrastructure, OS, and runtime. Users focus on code and data. In PaaS, the platform handles most operations. For example: AWS Lambda.
 
 **Software as a Service (SaaS):** 
 
-Fully managed applications delivered over the internet. Users consume the software without managing any underlying infrastructure. AWS Examples: Amazon WorkDocs, Amazon Chime.
+  Fully managed applications delivered over the internet. Users consume the software without managing any underlying infrastructure. In SaaS, the provider manages nearly everything. For example: Amazon WorkDocs, Amazon Chime.
 
-The Shared Responsibility Model shifts accordingly: in IaaS, the customer manages almost everything above the hypervisor; in PaaS, the platform handles most operations; in SaaS, the provider manages nearly everything.
-
-
+---
 
 **Procedure:**
 
-**Part A: IaaS-Launching an EC2 Instance**
+**Part A: IaaS Launching an EC2 Instance**
 
 **Step 1:** Log in to the AWS Console and navigate to the EC2 service.
 
@@ -46,6 +44,7 @@ The Shared Responsibility Model shifts accordingly: in IaaS, the customer manage
     - Inbound rule: SSH, TCP, 22, Anywhere and HTTP, TCP, 80, Anywhere
 - Storage: 8 GB gp3 (default)
 
+
 **Step 3:** Click "Launch Instance" and wait for the instance state to show "Running".
 
 > *Screenshot: EC2 dashboard showing running instance with public IP [Mandatory]*
@@ -53,6 +52,7 @@ The Shared Responsibility Model shifts accordingly: in IaaS, the customer manage
 > Sample:
 
 <img width="1467" height="716" alt="Screenshot 2026-04-12 at 10 30 32 AM" src="https://github.com/user-attachments/assets/385b85b1-f81f-4870-8df0-c01e86c3f23b" />
+
 
 **Step 4:** Connect to the instance via SSH:
 
@@ -71,6 +71,7 @@ icacls .\your-key.pem /grant:r "$env:USERNAME:R"
 <img width="979" height="122" alt="Screenshot 2026-04-12 at 10 37 32 AM" src="https://github.com/user-attachments/assets/56654d6d-123b-4951-b3b0-b116d2edd018" />
 
 <img width="976" height="277" alt="Screenshot 2026-04-12 at 10 38 00 AM" src="https://github.com/user-attachments/assets/dcafbe9c-1284-4495-8dbc-1f68af39c3c6" />
+
 
 **Step 5:** Install a web server to demonstrate full control over the instance:
 
@@ -102,7 +103,7 @@ echo "<html>
 
 > <img width="1470" height="302" alt="Screenshot 2026-04-12 at 10 42 16 AM" src="https://github.com/user-attachments/assets/44083df4-8b77-4cab-9f55-8623fa6f8985" />
 
-
+---
 
 **Part B: PaaS-Deploying with AWS Lambda**
 
@@ -118,6 +119,7 @@ echo "<html>
 > Sample:
 
 <img width="1455" height="713" alt="Screenshot 2026-04-12 at 12 13 26 PM" src="https://github.com/user-attachments/assets/df169661-8fd9-4417-8f7d-21c7d6eeef3d" />
+
 
 **Step 7:** Click "Create Function" and scroll down to the **Code source** section. Replace the default code with the following and click `Deploy`:
 
@@ -176,6 +178,7 @@ def lambda_handler(event, context):
 <img width="1344" height="557" alt="Screenshot 2026-04-12 at 12 16 47 PM" src="https://github.com/user-attachments/assets/10ae1904-adf7-4735-aab5-a1bb1c96d95e" />
 
 
+
 **Step 8:** Click `Test` -> `Create new test event`. Configure the following test events and run each one:
 
 - **Test Event 1** Passing Student:
@@ -227,7 +230,7 @@ def lambda_handler(event, context):
 
 <img width="1461" height="678" alt="Screenshot 2026-04-12 at 12 25 51 PM" src="https://github.com/user-attachments/assets/0e36b32b-0a8a-4609-9391-ef3ecad1a08e" />
 
-
+---
 
 **Part C: SaaS-Accessing Amazon WorkDocs**
 
@@ -237,7 +240,7 @@ def lambda_handler(event, context):
 
 *Screenshot: Amazon WorkDocs dashboard showing an uploaded and shared document [Optional]*
 
-
+---
 
 **Results:**
   - Successfully launched and configured an EC2 instance (IaaS) with a custom web server
@@ -255,6 +258,7 @@ def lambda_handler(event, context):
 | Setup complexity | High | Medium | Low |
 
 
+---
 
 **Discussion and Conclusion:**
 
