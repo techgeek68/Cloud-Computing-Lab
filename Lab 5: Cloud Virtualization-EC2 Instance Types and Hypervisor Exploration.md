@@ -1,4 +1,4 @@
-# Title: Exploring Virtualization Technology with Amazon EC2 and AWS Nitro System
+# Exploring Virtualization Technology with Amazon EC2 and AWS Nitro System
 
 ---
 
@@ -42,9 +42,6 @@ Step 2: Launch a Nitro-based instance
   - Instance type: t3.micro (Nitro-based, Free Tier eligible)
   - Key pair: Select an existing key pair or create a new one.
   - Keep other settings as default and click Launch instance.
-  
-> Screenshot: Instance type selection showing t3.micro
-
 
 Step 3: Launch a Xen-based instance (if available in your region)
   - Return to the EC2 dashboard and click Launch instance again.
@@ -54,73 +51,117 @@ Step 3: Launch a Xen-based instance (if available in your region)
   - Key pair: Select an existing key pair or create a new one.
   - Click Launch instance.
 
-> Screenshot: Both instances running in the EC2 dashboard
+> Screenshot: Both instances running in the EC2 dashboard [Mandatory].
+
+> Sample:
+
+<img width="1470" height="259" alt="Screenshot 2026-04-15 at 7 54 43 PM" src="https://github.com/user-attachments/assets/069c0485-f691-44db-bad8-9358a5fb3494" />
 
 
 Step 4: Verify Hypervisor and System Information
 
-  - Connect to Nitro-Instance via SSH.
+> Install the required package `sudo yum install -y dmidecode`
+
+- Connect to Nitro-Instance via SSH.
   - Run the following commands and note the output:
 ```bash
-curl http://169.254.169.254/latest/meta-data/instance-type      # Check virtualization type
+lscpu | grep -i "Virtualization"
+```
+>Referred to as Hardware Virtual Machine (HVM).
+```bash
+lscpu | grep -i "Hypervisor vendor"
+```
+>Nitro uses KVM as the hypervisor.
+```bash
+sudo dmidecode -s system-manufacturer                         
+```
+>All Nitro instances report Amazon EC2.
 
-cat /sys/hypervisor/type                                        # Shows "xen" for Xen-based instances
-```
-```bash
-# Check CPU information
-lscpu                                                          # Look for: Hypervisor vendor, Virtualization type
-```
-```bash
-# Check DMI information (Nitro instances)
-sudo dmidecode -s system-manufacturer                          # Shows "Amazon EC2" for Nitro instances
-```
-```bash
-# Check system info
-uname -a
-cat /proc/cpuinfo
-```
+> Screenshot: Terminal output showing hypervisor information from the instance [Mandatory].
 
-> Screenshot: Terminal output showing hypervisor information from the instance.
+> Sample:
+
+<img width="821" height="233" alt="Screenshot 2026-04-16 at 6 19 53 AM" src="https://github.com/user-attachments/assets/4620b21c-e98d-443b-8fec-3909d48e3428" />
+
 
 - Connect to Xen-Instance via SSH.
-- Run the following commands and note the output:
-  - `cat /sys/hypervisor/type`
-  - `lscpu`
-  - `lscpu | grep -i hypervisor`
+  - Run the following commands and note the output:
+```bash
+lscpu | grep -i "Virtualization"
+```
+>Referred to as Hardware Virtual Machine (HVM).
+```bash
+lscpu | grep -i "Hypervisor vendor"
+```
+>Xen uses Xen as the hypervisor.
+```bash
+sudo dmidecode -s system-manufacturer                         
+```
+>All Xen instances report Xen.
 
-> Screenshot: Terminal output showing hypervisor information from the instance.
+> Screenshot: Terminal output showing hypervisor information from the instance [Mandatory].
+
+> Sample:
+
+<img width="897" height="189" alt="Screenshot 2026-04-16 at 6 42 39 AM" src="https://github.com/user-attachments/assets/b4255dfb-ffc3-4261-a3d1-9af4019b4d68" />
+
 
 
 Step 5: Compare Network Drivers
-  - On Nitro-Instance, run: `ethtool -i eth0`. Verify the driver is `ena`.
-  - On Xen-Instance, run: `ethtool -i eth0`. Observe the legacy driver name.
 
-> Screenshot: Network driver comparison between Nitro and Xen instances.
+>List all network interfaces (look for 'ens', 'eth', or 'enX'): `ip -br link show`
+
+  - On Nitro-Instance, run: `ethtool -i eXXX`.
+    - Example:
+      
+<img width="697" height="247" alt="Screenshot 2026-04-16 at 6 52 56 AM" src="https://github.com/user-attachments/assets/18741229-ee87-4aa1-9f1c-abe00a9e3a2d" />
+
+      
+  - On Xen-Instance, run: `ethtool -i eXXX`. Observe the legacy driver name.
+    - Example:
+      
+<img width="682" height="246" alt="Screenshot 2026-04-16 at 6 50 48 AM" src="https://github.com/user-attachments/assets/9505a7eb-a4b1-4068-afc7-65ff1bb49f13" />
 
 
 Step 6: Explore Instance Families and their purposes
 
   - In the EC2 console navigation pane, click Instance types.
   - Use the filter bar to view:
+    
     - General Purpose (T3, M5): Balanced compute, memory, networking
+      - <img width="1449" height="603" alt="Screenshot 2026-04-16 at 6 56 46 AM" src="https://github.com/user-attachments/assets/deb0a94b-f71b-4bac-928b-819ea5e6bd8d" />
+      
     - Compute Optimized (C5): CPU-intensive workloads
-    - Memory Optimized (R5): Large in-memory datasets
-    - Storage Optimized (I3): High sequential read/write
-    - Accelerated Computing (P3, G4): GPU for ML/AI
-    - Review the column for Hypervisor to see which families use `nitro` versus `xen`
+      - <img width="1457" height="660" alt="Screenshot 2026-04-16 at 6 58 07 AM" src="https://github.com/user-attachments/assets/79b91311-5ec1-4d78-a2b3-a73c296fe1a9" />
 
-> Screenshot: EC2 instance types page showing family comparison
+ 
+    - Memory Optimized (R5): Large in-memory datasets
+      -  <img width="1454" height="602" alt="Screenshot 2026-04-16 at 7 02 06 AM" src="https://github.com/user-attachments/assets/ef368545-3ec0-4b9b-b38c-34655265ead3" />
+
+    
+    - Storage Optimized (I3): High sequential read/write
+      - <img width="1455" height="602" alt="Screenshot 2026-04-16 at 7 02 32 AM" src="https://github.com/user-attachments/assets/c26e98b3-eae0-487d-b246-6ca0ca586b54" />
+
+    
+    - Accelerated Computing (P3, G4): GPU for ML/AI
+      -  <img width="1470" height="565" alt="Screenshot 2026-04-16 at 7 03 13 AM" src="https://github.com/user-attachments/assets/37ff2718-5581-490d-8b33-06d9fd47a50d" />
+   
 
 Step 7: Monitor virtualized resource usage with CloudWatch
   - Navigate to the CloudWatch service
-  - Click Metrics in the left menu, then All metrics
-  - Browse to EC2 > Per-Instance Metrics
-  - View: `CPUUtilization`, `NetworkIn`, `NetworkOut`, `DiskReadOps`
+  - Click Metrics in the left menu, then metrics > All metrics > EC2: View automatic dashboard > Per-Instance Metrics
+  - View: `CPUUtilization`, `NetworkIn`, `NetworkOut`
   - Switch to the Graphed metrics tab to view the current utilization.
->Screenshot: CloudWatch dashboard with EC2 instance metrics
+    
+>Screenshot: CloudWatch dashboard with EC2 instance metrics [Mandatory].
+
+>Sample:
+
+<img width="1458" height="695" alt="Screenshot 2026-04-16 at 7 13 18 AM" src="https://github.com/user-attachments/assets/1586ed40-5ef6-4d4f-83b3-caaa446b583d" />
+
 
 Step 8: Perform a CPU Stress Test
-  - Connect via SSH to either of the running Linux instances.
+  - Connect via SSH to either of the running instances.
   - Install the `stress` utility:
     ```bash
     sudo yum install stress -y
@@ -129,20 +170,30 @@ Step 8: Perform a CPU Stress Test
     ```bash
     stress --cpu 2 --timeout 60s
     ```
-  - Immediately return to the CloudWatch graph and refresh it after a minute to observe the spike in CPU utilization.
+  - Return to the CloudWatch graph and refresh it after a minute to observe the spike in CPU utilization.
 
->Screenshot: CloudWatch showing CPU spike during stress test
+>Screenshot: CloudWatch showing CPU spike during stress test [Mandatory].
 
-Step 9: Examine Placement Groups (virtualization-related):
+>Sample:
+
+<img width="1459" height="654" alt="Screenshot 2026-04-16 at 7 28 35 AM" src="https://github.com/user-attachments/assets/3872449c-34b5-4fd7-bf4d-7aabd62939f3" />
+
+
+Step 9: Examine Placement Groups:
   - Return to the EC2 console.
-  - In the navigation pane, click Placement Groups.
+  - In the navigation pane, Network & Security > Placement Groups.
   - Click Create placement group.
-    - Cluster: Low-latency in a single AZ
-    - Spread: Each instance on different hardware
-    - Partition: Distributed across logical partitions
+    - `Cluster`: `Low latency` in a single AZ
+    - `Spread`: Each instance on different hardware
+    - `Partition`: Distributed across logical partitions
   - Read the description to understand how each strategy distributes instances across underlying hardware. (You do not need to create a group to complete this step.) 
 
->Screenshot: Placement group creation options
+>Screenshot: Placement group creation options [Mandatory].
+
+>Sample:
+
+<img width="1129" height="419" alt="Screenshot 2026-04-16 at 7 36 50 AM" src="https://github.com/user-attachments/assets/8367393f-fbb7-4585-883f-ffcd8fd0fad7" />
+
 
 ---
 
@@ -157,6 +208,6 @@ Step 9: Examine Placement Groups (virtualization-related):
 
 **Discussion and Conclusion:**
 
-This lab explored AWS's virtualization implementation. AWS has evolved from the Xen hypervisor to the custom Nitro System, which offloads virtualization functions to dedicated hardware, achieving near bare-metal performance. The Nitro hypervisor is a lightweight Type-1 hypervisor that provides strong isolation between instances. Comparing t2 (Xen) and t3 (Nitro) instances revealed differences in network drivers (ENA vs. legacy) and performance characteristics. Instance families demonstrate how virtualization allows the same physical hardware to be partitioned and optimized for different workload profiles. CloudWatch provides visibility into virtualized resource consumption, essential for capacity planning and performance management.
+This lab explored AWS's virtualization implementation. AWS has evolved from the Xen hypervisor to the custom Nitro System, which offloads virtualization functions to dedicated hardware, achieving near bare metal performance. The Nitro hypervisor is a lightweight Type 1 hypervisor that provides strong isolation between instances. Comparing t2 (Xen) and t3 (Nitro) instances revealed differences in network drivers (ENA vs. legacy) and performance characteristics. Instance families demonstrate how virtualization allows the same physical hardware to be partitioned and optimized for different workload profiles. CloudWatch provides visibility into virtualized resource consumption, essential for capacity planning and performance management.
 
 ---
