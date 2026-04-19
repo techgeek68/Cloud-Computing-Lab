@@ -46,33 +46,37 @@ MapReduce is a programming model for processing large datasets in parallel acros
 **Step 1: Create the Input File and Upload to S3**
 
 **1a. Create the S3 Bucket**
-  1. Go to **AWS Console** -> Search **S3** -> Click **Create bucket**
-  2. Set **Bucket name**: `emr-lab-<your-name>` (replace `<your-id>` with your name)
-  3. Bucket type -> **General purpose**
-  4. **ACLs disabled**
-  5. Leave all other settings as default -> Click **Create bucket**
-  6. Create a folder named `logs` inside `input` folder. 
+
+  - Go to **AWS Console** -> Search **S3** -> Click **Create bucket**
+  - Set **Bucket name:** `emr-lab-<your-name>` *(replace `<your-name>` with your name)*
+  - **Bucket type** -> `General purpose`
+  - **ACLs** -> `Disabled`
+  - Leave all other settings as default -> Click **Create bucket**
+  - Open your bucket -> Click **Create folder** -> Name it `logs` -> Click **Create folder** *(at bucket root)*
+  - Click **Create folder** again → Name it `input` -> Click **Create folder** *(at bucket root)*
+
 
 **1b. Create the Input File Locally**
 
-On your local machine, create `input.txt`:
->Linux/Unix: vim input.txt
+- On your local machine, create `input.txt`:
+  - **Linux/Unix:** `vim input.txt`
+  - **Windows:** `notepad input.txt`
+- Paste the following content:
+  ```
+  Cloud computing is the future of computing
+  Cloud services include IaaS PaaS and SaaS
+  Virtualization enables cloud computing
+  Cloud computing provides scalability and elasticity
+  ```
+- Save and close the file
 
->Windows: notepad input.txt
-```text name=input.txt
-Cloud computing is the future of computing
-Cloud services include IaaS PaaS and SaaS
-Virtualization enables cloud computing
-Cloud computing provides scalability and elasticity
-```
 
 **1c. Upload to S3**
-  1. Open your bucket -> Click **Create folder** -> Name it `input` -> Click **Create folder**
-  2. Click into the `input/` folder -> Click **Upload**
-  3. Click **Add files** -> Select your `input.txt` file
-  4. Click **Upload**
+  - Open your bucket → Click into the `input/` folder
+  - Click **Upload** → Click **Add files** → Select your `input.txt` file
+  - Click **Upload**
 
->*Screenshot checkpoint: S3 bucket showing `input/input.txt`*
+> *Screenshot checkpoint: S3 bucket showing `input/input.txt` *(only `input.txt` inside `input/`, no subfolders)*
 
 >Sample:
 
