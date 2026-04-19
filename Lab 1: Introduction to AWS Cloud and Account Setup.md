@@ -1,14 +1,18 @@
 # Getting Started with AWS Cloud Platform
 
+---
+
 **Objectives:**
   - Understand the AWS Cloud ecosystem and its global infrastructure
   - Create and configure an AWS Free Tier account
   - Explore the AWS Management Console and core service categories
   - Relate AWS services to cloud computing characteristics (on-demand, scalability, pay as you go)
 
+---
+
 **Theory:**
 
-Cloud computing is the delivery of computing resources (servers, storage, databases, networking, and software) over the internet. AWS (Amazon Web Services) is the leading cloud platform, offering 200+ services from data centers around the world. The evolution of cloud computing progressed from mainframes to client-server architecture, then to virtualization, and finally to cloud computing. Key characteristics defined by NIST include:
+Cloud computing is the delivery of computing resources (servers, storage, databases, networking, and software) over the internet. AWS (Amazon Web Services) is the leading cloud platform, offering 200+ services across data centers worldwide. The evolution of cloud computing progressed from mainframes to client server architecture, then to virtualization, and finally to cloud computing. Key characteristics defined by NIST include:
 
   1. **On-demand self service** – Users provision resources without human intervention
   2. **Broad network access** – Services accessible over the internet
@@ -18,12 +22,11 @@ Cloud computing is the delivery of computing resources (servers, storage, databa
 
 AWS organizes its infrastructure into **Regions** (geographic areas) and **Availability Zones** (isolated data centers within a region), providing high availability and fault tolerance. The AWS Free Tier allows new users to explore services at no cost for 12 months.
 
+---
 
 **Procedure:**
 
-
 **Step 1:** Open a web browser and navigate to [https://aws.amazon.com/free](https://aws.amazon.com/free)
-
 
 **Step 2:** Click **"Create a Free Account"** and provide:
   - Email address
@@ -73,7 +76,7 @@ AWS organizes its infrastructure into **Regions** (geographic areas) and **Avail
 
 > *Screenshot: MFA setup completion [Optional]*
 
-
+---
 
 **Results:**
   - AWS Free Tier account successfully created and configured
@@ -95,3 +98,5 @@ AWS organizes its infrastructure into **Regions** (geographic areas) and **Avail
 **Discussion and Conclusion:**
 
 This lab covered the foundational setup of the AWS cloud platform, which reflects all five NIST characteristics of cloud computing. The Management Console provides on-demand self service provisioning. The global infrastructure of Regions and Availability Zones demonstrates resource pooling and broad network access. The Free Tier model reflects a measured service approach. Rapid elasticity will be observed in subsequent labs. Creating a dedicated IAM user and enabling MFA on the root account follows the principle of least privilege, which is a core security practice in any cloud environment. 
+
+---
