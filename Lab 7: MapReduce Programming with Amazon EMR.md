@@ -265,26 +265,27 @@ if current_word:
 
 <img width="1284" height="286" alt="Screenshot 2026-04-20 at 1 32 10 PM" src="https://github.com/user-attachments/assets/5083af90-a379-4966-b05a-f566fb37ddbb" />
 
-[All Applications.pdf](https://github.com/user-attachments/files/26887426/All.Applications.pdf)
+
+>[Click here to download output in pdf format](https://github.com/user-attachments/files/26887426/All.Applications.pdf)
 
 
 
-**Step 9: Run a Comparison with a Larger Dataset**
+**Step 9: Run a Comparison with a Larger Dataset** **[Optional]**
 
-**9a. Download a Large Text File**
+**a. Download a Large Text File**
 
-1. Go to [Project Gutenberg](https://www.gutenberg.org/)
-2. Download a plain text book (e.g., *War and Peace* — `.txt` format, ~3MB)
+  1. Go to [Project Gutenberg](https://www.gutenberg.org/)
+  2. Download a plain text book (e.g., *War and Peace* — `.txt` format, ~3MB)
 
-**9b. Upload to S3**
+**b. Upload to S3**
 
-1. Go to your S3 bucket → `input/` folder
-2. Upload the large `.txt` file (e.g., `war_and_peace.txt`)
+  1. Go to your S3 bucket -> `input/` folder
+  2. Upload the large `.txt` file (e.g., `war_and_peace.txt`)
 
-**9c. Run the Same MapReduce Job**
+**c. Run the Same MapReduce Job**
 
-1. In EMR Console → **Steps** tab → **Add step**
-2. Use the same mapper/reducer, but update:
+  1. In EMR Console -> **Steps** tab -> **Add step**
+  2. Use the same mapper/reducer, but update:
 
 | Field | Value |
 |---|---|
@@ -292,73 +293,45 @@ if current_word:
 | **Input location** | `s3://emr-lab-<your-id>/input/war_and_peace.txt` |
 | **Output location** | `s3://emr-lab-<your-id>/output/wordcount-large/` |
 
-3. Note the execution time from the Steps tab
+  3. Note the execution time from the Steps tab
 
-**9d. Compare Execution Times**
+**d. Compare Execution Times**
 
 | Job | Input Size | Execution Time |
 |---|---|---|
 | `WordCount-Job` | ~200 bytes | ~1–2 min |
 | `WordCount-Large` | ~3 MB | ~2–4 min |
 
-> **Key insight:** EMR's distributed processing means scaling the cluster (more Core nodes) reduces execution time proportionally for large datasets.
-
-*Screenshot checkpoint: Steps tab showing both completed jobs with their durations*
-
-
-Step 9: Run a Comparison with a Larger Dataset
-
-- Visit [Project Gutenberg](https://www.gutenberg.org) → Download any public domain book as **Plain Text UTF-8** (e.g., *Moby Dick*)
-- Save it as `large_input.txt`
-- Go to **S3** → `emr-lab-<your-name>` → `input/` folder
-- Click **Upload** → **Add files** → Select `large_input.txt` → Click **Upload**
-- Go to **EMR** → your cluster → **Steps** tab → Click **Add step**
-
-| Field | Value |
-|---|---|
-| **Step type** | `Streaming program` |
-| **Name** | `WordCount-Job-Large` |
-| **Mapper** | `s3://emr-lab-<your-name>/scripts/mapper.py` |
-| **Reducer** | `s3://emr-lab-<your-name>/scripts/reducer.py` |
-| **Input location** | `s3://emr-lab-<your-name>/input/large_input.txt` |
-| **Output location** | `s3://emr-lab-<your-name>/output/wordcount-large/` |
-| **Action on failure** | `Continue` |
-
-- Submit and wait for **Completed**
-- Compare **Elapsed time** of both steps
-
-> 📸 **Screenshot checkpoint:** Both steps showing elapsed time for comparison
+> EMR's distributed processing means scaling the cluster (more Core nodes) reduces execution time proportionally for large datasets.
 
 ---
 
-### Step 10: Terminate the EMR Cluster
+**Step 10: Terminate the EMR Cluster** 
 
-- Go to **Amazon EMR** → **Clusters**
-- Check the checkbox next to `MapReduce-Lab-Cluster`
-- Click **Terminate**
-- If termination protection is **On** → click **Change** → turn it **Off** → then confirm **Terminate**
-- Wait for status to show `Terminated`
+  - Go to **Amazon EMR** -> **Clusters**
+  - Check the checkbox next to `MapReduce-Lab-Cluster`
+  - Click **Terminate**
+  - If termination protection is **On** → click **Change** -> turn it **Off** -> then confirm **Terminate**
+  - Wait for status to show `Terminated`
 
-> 📸 **Screenshot checkpoint:** Termination confirmation or cluster showing **Terminated** status
-
-> ⚠️ **Always terminate your cluster after the lab to avoid ongoing charges.**
+> *Always terminate your cluster after the lab to avoid ongoing charges.*
 
 ---
 
 **Results**
 
-- An EMR cluster with two core nodes was successfully provisioned.
-- The Hadoop Streaming MapReduce job executed a word count on the input data.
-- The output correctly computed word frequencies across all input lines.
-- Parallel execution was observed across both map and reduce tasks.
-- The larger dataset test demonstrated the scalability benefit of distributed processing.
+  - An EMR cluster with two core nodes was successfully provisioned.
+  - The Hadoop Streaming MapReduce job executed a word count on the input data.
+  - The output correctly computed word frequencies across all input lines.
+  - Parallel execution was observed across both map and reduce tasks.
+  - The larger dataset test demonstrated the scalability benefit of distributed processing.
 
 ---
 
 **Discussion and Conclusion**
 
-This lab implemented the MapReduce programming model using Amazon EMR. The mapper decomposed input text into key-value pairs in the form `(word, 1)`, and the reducer aggregated those pairs to produce a final count for each unique word. Hadoop handled data distribution, fault tolerance, and the shuffle and sort phase transparently.
+This lab implemented the MapReduce programming model using Amazon EMR. The mapper decomposed input text into key value pairs in the form `(word, 1)`, and the reducer aggregated those pairs to produce a final count for each unique word. Hadoop handled data distribution, fault tolerance, and the shuffle and sort phase transparently.
 
-MapReduce achieves parallel efficiency primarily through data locality: mappers run on the nodes where the data already resides, which reduces network transfer and speeds up execution. Unlike thread programming, which is constrained to a single machine's cores, or task programming, which is limited to a single machine's resources, MapReduce scales horizontally across hundreds of nodes. This makes it well-suited for enterprise batch workloads such as log analysis, ETL pipelines, and large-scale data aggregation. Amazon EMR reduces the operational burden of running these workloads by automating cluster management entirely.
+MapReduce achieves parallel efficiency primarily through data locality: mappers run on the nodes where the data already resides, which reduces network transfer and speeds up execution. Unlike thread programming, which is constrained to a single machine's cores, or task programming, which is limited to a single machine's resources, MapReduce scales horizontally across hundreds of nodes. This makes it well suited for enterprise batch workloads such as log analysis, ETL pipelines, and large scale data aggregation. Amazon EMR reduces the operational burden of running these workloads by automating cluster management entirely.
 
 ---
