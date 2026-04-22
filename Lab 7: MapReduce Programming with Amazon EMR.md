@@ -253,7 +253,7 @@ if current_word:
 
 
 **Step 8: Examine Hadoop Job Logs and Metrics**
-  - Go to **EMR Console** → Click your cluster
+  - Go to **EMR Console** -> Click your cluster
   - Click the **Application user interfaces** tab
   - Under **On-cluster user interfaces**, click **Resource Manager**
   - In the Hadoop Resource Manager UI:
@@ -311,7 +311,7 @@ if current_word:
   - Go to **Amazon EMR** -> **Clusters**
   - Check the checkbox next to `MapReduce-Lab-Cluster`
   - Click **Terminate**
-  - If termination protection is **On** → click **Change** -> turn it **Off** -> then confirm **Terminate**
+  - If termination protection is **On** -> click **Change** -> turn it **Off** -> then confirm **Terminate**
   - Wait for status to show `Terminated`
 
 > *Always terminate your cluster after the lab to avoid ongoing charges.*
