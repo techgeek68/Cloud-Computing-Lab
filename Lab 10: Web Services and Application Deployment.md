@@ -13,20 +13,20 @@
 
 **Theory**
 
-Web services are software systems designed to support interoperable, machine-to-machine communication over a network. In cloud computing, they form the backbone of SaaS applications and microservices architectures.
+Web services are software systems designed to support interoperable, machine to machine communication over a network. In cloud computing, they form the backbone of SaaS applications and microservices architectures.
 
-**REST (Representational State Transfer)** is an architectural style that uses standard HTTP methods — GET, POST, PUT, and DELETE — to interact with resources identified by URLs. RESTful web services are stateless, cacheable, and horizontally scalable by design.
+**REST (Representational State Transfer)** is an architectural style that uses standard HTTP methods: GET, POST, PUT, and DELETE to interact with resources identified by URLs. RESTful web services are stateless, cacheable, and horizontally scalable by design.
 
 
 **AWS Deployment Platforms**
 
-**Elastic Beanstalk** is a Platform-as-a-Service (PaaS) offering that supports deploying web applications written in Java, .NET, PHP, Node.js, Python, Ruby, Go, and Docker. It handles infrastructure provisioning automatically.
+**Elastic Beanstalk** is a Platform as a Service (PaaS) offering that supports deploying web applications written in Java, .NET, PHP, Node.js, Python, Ruby, Go, and Docker. It handles infrastructure provisioning automatically.
 
 **AWS App Runner** is a fully managed service for deploying containerized web apps and APIs with minimal configuration.
 
 **Amazon ECS and EKS** provide container orchestration for microservices at scale.
 
-**AWS Amplify** is designed for full-stack web and mobile application hosting.
+**AWS Amplify** is designed for full stack web and mobile application hosting.
 
 These platforms are AWS equivalents to Google App Engine, Microsoft Azure App Service, and Aneka, all of which represent the PaaS layer of cloud computing.
 
@@ -38,7 +38,8 @@ These platforms are AWS equivalents to Google App Engine, Microsoft Azure App Se
 
 1. On your local machine, create a project folder and add the following two files.
 
-`application.py`:
+> Linux/Unix: `mkdir project` `cd project` `vim application.py`
+> Windows: Right click, create folder name `project`, `notepad application.py`
 
 ```python name=application.py
 from flask import Flask, jsonify, request
@@ -58,9 +59,9 @@ def home():
 @application.route('/api/students', methods=['GET'])
 def get_students():
     students = [
-        {"id": 1, "name": "Alice", "course": "Cloud Computing"},
-        {"id": 2, "name": "Bob", "course": "Cloud Computing"},
-        {"id": 3, "name": "Charlie", "course": "Cloud Computing"}
+        {"id": 1, "name": "David", "course": "Cloud Computing"},
+        {"id": 2, "name": "Natasha", "course": "Cloud Computing"},
+        {"id": 3, "name": "Harry", "course": "Cloud Computing"}
     ]
     return jsonify({"students": students, "count": len(students)})
 
@@ -87,14 +88,24 @@ if __name__ == '__main__':
 flask==3.0.0
 ```
 
-2. Take a screenshot of the project folder showing both files.
+> *Screenshot: Take a screenshot of the project folder showing both files [Mandatory]*
+
+> Sample:
+
+<img width="884" height="179" alt="Screenshot 2026-04-23 at 1 16 30 PM" src="https://github.com/user-attachments/assets/71453c88-1af0-4ab3-a974-7e7607d821bb" />
 
 **Step 2: Create the Deployment Package**
 
 1. Open a terminal in your project folder and run the following command to create a ZIP archive:
 
+>Linux/Unix
 ```bash name=package.sh
 zip -r cloud-web-service.zip application.py requirements.txt
+```
+
+>Windows 10/11
+```
+tar -a -c -f cloud-web-service.zip application.py requirements.txt
 ```
 
 2. Confirm that `cloud-web-service.zip` was created in the same directory.
