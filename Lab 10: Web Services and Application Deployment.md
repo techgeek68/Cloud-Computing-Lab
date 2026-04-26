@@ -125,45 +125,84 @@ tar -a -c -f cloud-web-service.zip application.py requirements.txt
 3. Set the application name to `cloud-web-service`. The environment name will auto-populate (e.g., `cloud-web-service-env`); leave it as is.
 4. For the platform, select **Python** and choose the **Python 3.9+** branch. Leave the platform version as the recommended default.
 5. Under application code, select **Local file**. Click **Choose file** and upload the `cloud-web-service.zip` file you just created.
-6. Under **Infrastructure**, configure the following:
+6. Additional environment details: `LabRole`
+7. Under **Infrastructure**, configure the following:
    - Environment tier: `Web server environment`
    - Auto scaling group -> Environment type: **Single instance**
    - Autoscaling configuration: `On-Demand instance`
    - Compute -> Architecture: `x86_64`; Instance types: leave default
    - Root volume: leave default
-7. Under **Additional infrastructure details**, set the following:
+8. Under **Additional infrastructure details**, set the following:
    - EC2 instance profile: `LabInstanceProfile`
    - EC2 key pair: `CloudLab`
-   - **Service role: select `LabRole`** *(do NOT leave this as "Auto-generated" — it will cause a deployment failure)*
-8. Under **Additional services -> Monitoring**, set health reporting to **Enhanced**.
-9. Leave all other settings as they are and click **Create**.
+9. Under **Additional services -> Monitoring**, set health reporting to **Enhanced**.
+10. Leave all other settings as they are and click **Create**.
+11. After clicking **Create**, Elastic Beanstalk will begin provisioning the environment and deploying your code. This typically takes **5 to 10 minutes**. Monitor the **Events** tab for progress.
     
-*Take a screenshot of the environment configuration review page before clicking Create.*
+>*Screenshot: Take a screenshot of the environment configuration review page before clicking Create [Mandatory].*
+
+>Sample:
+
+<img width="1458" height="712" alt="Screenshot 2026-04-26 at 11 14 27 AM" src="https://github.com/user-attachments/assets/9c2f3aae-3f7b-4f31-a721-7bb0c1b22319" />
 
 
 **Step 4: Deploy the Application**
 
-1. After clicking **Create**, Elastic Beanstalk will begin provisioning the environment and deploying your code. This typically takes **5 to 10 minutes**. Monitor the **Events** tab for progress.
+
 2. Once deployment is complete, confirm that the environment health status shows **Ok** in green on the Elastic Beanstalk dashboard.
    
-*Take a screenshot of the Elastic Beanstalk dashboard showing the green **Ok** health status.*
+>*Screenshot: Take a screenshot of the Elastic Beanstalk dashboard showing the green **Ok** health status.*
+
+>Sample:
+
+<img width="1470" height="539" alt="Screenshot 2026-04-26 at 11 17 16 AM" src="https://github.com/user-attachments/assets/03e24577-5673-4b95-8989-c6d1ff221a72" />
 
 
 **Step 5: Test All API Endpoints**
 
 1. On the Elastic Beanstalk environment page, copy the environment URL shown at the top (e.g., `http://cloud-web-service-env.eba-xxxx.us-east-1.elasticbeanstalk.com`).
-2. Open a browser and test the following endpoints by appending each path to the base URL:
 
-   | Endpoint | Expected Response |
-   |---|---|
-   | `/` | Root response from the application |
-   | `/api/students` | JSON list of students |
-   | `/api/courses` | JSON list of courses |
-   | `/health` | `{"status": "healthy"}` with HTTP 200 |
+>*Screenshot:[Mandatory]*
+
+<img width="334" height="64" alt="Screenshot 2026-04-26 at 11 20 25 AM" src="https://github.com/user-attachments/assets/040236fa-b94d-4380-8e11-608f3b56fae3" />
 
 
-*Take a screenshot of the browser showing the JSON response from `/api/students`.*
+3. Open a browser and test the following endpoints by appending each path to the base URL:
 
+  - Endpoint:`/`
+  - Example:
+  - Expected Response: Root response from the application
+
+>*Screenshot:[Mandatory]*
+
+<img width="1470" height="154" alt="Screenshot 2026-04-26 at 11 21 52 AM" src="https://github.com/user-attachments/assets/f7fbf752-6571-43a5-8449-318236a0773b" />
+
+
+  - Endpoint:`/api/students`
+  - Example: http://cloud-web-service-env-1.eba-3tfcravw.us-east-1.elasticbeanstalk.com/api/students
+  - Expected Response: JSON list of students
+
+>*Screenshot:[Mandatory]*
+
+<img width="1470" height="134" alt="Screenshot 2026-04-26 at 11 22 36 AM" src="https://github.com/user-attachments/assets/4f6e6356-e483-4f50-81af-ee156be46a48" />
+
+
+  - Endpoint:`/api/courses`
+  - Example:
+  - Expected Response: JSON list of courses
+
+>*Screenshot:[Mandatory]*
+
+<img width="1145" height="101" alt="Screenshot 2026-04-26 at 12 25 25 PM" src="https://github.com/user-attachments/assets/620a964f-fc68-4aeb-8ea5-e90a654b1f1a" />
+
+
+  - Endpoint:`/health`
+  - Example:
+  - Expected Response: `{"status": "healthy"}` with HTTP 200 
+
+>*Screenshot:[Mandatory]*
+
+![Screenshot 2026-04-26 at 12 26 53 PM](https://github.com/user-attachments/assets/b59d3e58-b7cb-4c28-9650-40f9c092ea6d)
 
 
 **Step 6: View Application Logs**
@@ -172,33 +211,38 @@ tar -a -c -f cloud-web-service.zip application.py requirements.txt
 2. Click **Request logs** and select **Last 100 lines**.
 3. Once the logs are generated, click **Download** and review the output to confirm that your API requests were handled and recorded.
    
-*Take a screenshot of the log output showing the recorded API requests.*
+>*Screenshot: Take a screenshot of the log output showing the recorded API requests [Mandatory].*
+
+<img width="1453" height="618" alt="Screenshot 2026-04-26 at 12 33 59 PM" src="https://github.com/user-attachments/assets/da3d28f6-93ef-4cb6-b8f0-d718f06ecba1" />
+
+<img width="1455" height="732" alt="Screenshot 2026-04-26 at 12 34 17 PM" src="https://github.com/user-attachments/assets/bc948786-bae0-4095-a776-6dea1ef0f63c" />
+
+<img width="1458" height="758" alt="Screenshot 2026-04-26 at 12 35 43 PM" src="https://github.com/user-attachments/assets/3f1b2a87-c697-4f81-b254-d102ecf0c0d8" />
 
 
-**Step 7: Explore AWS App Runner**
+**Step 7: Explore AWS App Runner [Optional]**
 
-1. Navigate to the **App Runner** console from the AWS Management Console and click **Create service**.
+1. Navigate to the **AWS App Runner** console from the AWS Management Console and click **Create an App Runner service**.
 2. Review the available source options:
+   - **Container registry** (pulls from Amazon ECR or a public registry)
    - **Source code repository** (connects to GitHub/Bitbucket via a connector)
-   - **Container image** (pulls from Amazon ECR or a public registry)
 3. Browse through the configuration options and note the following differences compared to Elastic Beanstalk:
 
    | Feature | Elastic Beanstalk | App Runner |
    |---|---|---|
-   | Infrastructure management | You configure EC2, scaling, VPC | Fully abstracted — no server management |
+   | Infrastructure management | You configure EC2, scaling, VPC | Fully abstracted; no server management |
    | Deployment source | ZIP file / S3 | Source code repo or container image |
-   | Auto-scaling | Configurable | Automatic, built-in |
-   | Health checks | Enhanced monitoring via CloudWatch | Built-in HTTP health checks |
+   | Auto scaling | Configurable | Automatic, built in |
+   | Health checks | Enhanced monitoring via CloudWatch | Built in HTTP health checks |
    | Custom domains | Manual setup | Supported natively |
 
 
-*Take a screenshot of the App Runner service creation page for comparison.*
 
 **Step 8: Set Up a CloudWatch Alarm**
 
-  1. Navigate to the CloudWatch console and go to **Alarms**.
-  2. Click **Create alarm** and select a metric.
-  3. Choose the Elastic Beanstalk metric for `ApplicationRequests5xx`, set the threshold to greater than 5 over 5 minutes.
+  1. Navigate to the **CloudWatch** console and go to **Alarms**.
+  2. Click **Create alarm** and select a **metric**.
+  3. Choose the **ElasticBeanstalk** metric for `ApplicationRequests5xx`, set the threshold to greater than 5 over 5 minutes.
   4. Configure an action to send a notification via an SNS topic (create a new topic if needed and enter your email address to receive alerts).
   5. Name the alarm and complete the setup.
   6. Take a screenshot of the alarm configuration.
