@@ -47,10 +47,10 @@ AWS API Gateway complements Lambda by exposing RESTful HTTP endpoints that trigg
 > *Screenshot: Take a screenshot of the function creation page [Mandatory].*
 
 > Sample:
-
+---
 <img width="1457" height="726" alt="Screenshot 2026-04-22 at 8 56 32 AM" src="https://github.com/user-attachments/assets/5ee0bb5b-ba7e-4c91-ba57-1bff0ed3604f" />
 
-
+---
 **Step 2: Write and Deploy the Function Code**
 
 1. In the function's code editor, replace the default code with the following:
@@ -103,10 +103,10 @@ def lambda_handler(event, context):
 >*Screenshot: Take a screenshot of the test result [Mandatory].*
 
 >Sample:
-
+---
 <img width="1077" height="327" alt="Screenshot 2026-04-22 at 9 01 53 AM" src="https://github.com/user-attachments/assets/abb85386-f872-4080-92ae-1075e2a4ed5a" />
 
-
+---
 **Step 4: Create an API Gateway Trigger**
 
   1. Navigate to the API Gateway console and click **Create API**.
@@ -119,12 +119,13 @@ def lambda_handler(event, context):
 >*Screenshot: Complete the setup and take a screenshot of the API Gateway configuration showing the Lambda integration [Mandatory].*
 
 >Sample:
-
+---
 <img width="1470" height="438" alt="Screenshot 2026-04-22 at 9 10 02 AM" src="https://github.com/user-attachments/assets/fea3ad6c-c001-49b4-890a-f15adb436746" />
 
+---
 <img width="1469" height="420" alt="Screenshot 2026-04-22 at 9 22 25 AM" src="https://github.com/user-attachments/assets/ea1d50fe-e81f-4e2a-bd39-8dfe26b7bf05" />
 
-
+---
 **Step 5: Test the API Endpoint**
 
   1. After the API is created, copy the invoke URL shown on the API Gateway dashboard.
@@ -135,10 +136,10 @@ def lambda_handler(event, context):
 >*Screenshot: Take a screenshot of the browser output [Mandatory].*
 
 >Sample:
-
+---
 <img width="1470" height="820" alt="Screenshot 2026-04-22 at 9 25 59 AM" src="https://github.com/user-attachments/assets/85f2eb98-00f3-40c9-bf0a-aa984c677c4b" />
 
-
+---
 **Step 6: Create an S3-Triggered Lambda Function**
 
   1. In **S3** create a general purpose bucket with a unique name (like:`lambdalabsamriddhicollege`) and leave all other settings default.
@@ -188,29 +189,31 @@ def lambda_handler(event, context):
   1. Open the S3 console, navigate to your bucket, and upload any `.jpg` file.
      
 >*Sample:*
-
+---
 <img width="1469" height="469" alt="Screenshot 2026-04-22 at 10 28 19 AM" src="https://github.com/user-attachments/assets/fc7eee44-2175-4ea3-b437-30769802b6c7" />
 
-
+---
   2. Return to the `S3ImageProcessor` Lambda function, go to the **Monitor** tab, and click **View CloudWatch Logs**.
 
 >*Sample:*
-
+---
 <img width="1460" height="702" alt="Screenshot 2026-04-22 at 10 34 23 AM" src="https://github.com/user-attachments/assets/336e368c-8610-4f70-8c89-ef00567be00b" />
-  
+
+---
   3. Open the most recent log stream and confirm the function executed, printing the file name, bucket, and size.
 
 >*Sample: [Mandatory]*
-
+---
 <img width="1463" height="719" alt="Screenshot 2026-04-22 at 10 37 26 AM" src="https://github.com/user-attachments/assets/0d4f74f8-e6a5-4471-9c25-6600e2c026ef" />
-  
+
+ ---
   4. Back in the S3 bucket, navigate to the `processed/` folder and confirm the uploaded file was copied there.
 
 >*Sample: [Mandatory]*
-
+---
 <img width="1470" height="296" alt="Screenshot 2026-04-22 at 10 39 46 AM" src="https://github.com/user-attachments/assets/90809630-ed01-4021-9c69-8046325c68c5" />
 
-
+---
 **Step 8: Monitor Lambda Performance**
 
   1. Open the `HelloCloudFunction` and go to the **Monitor** tab.
@@ -218,9 +221,8 @@ def lambda_handler(event, context):
 
 >*Screenshot: Take a screenshot of the monitoring dashboard [Mandatory].*
 >Sample:
-
+---
 <img width="1452" height="641" alt="Screenshot 2026-04-22 at 10 46 30 AM" src="https://github.com/user-attachments/assets/36b29196-d72e-4ae0-8aab-24bdfa15f732" />
-
 
 ---
 
