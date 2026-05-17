@@ -28,7 +28,7 @@ Amazon VPC (Virtual Private Cloud) allows you to create a logically isolated sec
 **Procedure**
 
 **Step 1: Create a VPC**  
-- Go to the AWS Management Console and open the VPC service. **VPC → Create VPC**.  
+- Go to the AWS Management Console and open the VPC service. **VPC > Create VPC**.  
 - Select `VPC and more`. 
    - **Name tag:** cloud-arch-lab  
    - **IPv4 CIDR block:** 10.0.0.0/16  
@@ -44,52 +44,52 @@ Amazon VPC (Virtual Private Cloud) allows you to create a logically isolated sec
    - **VPC endpoints:** S3 Gateway
    - **Create VPC**
 
->*Screenshot: The page that shows the details of the VPC you created [Mandatory]*
+*Screenshot: The page that shows the details of the VPC you created [Mandatory]*
 
->Sample:
+Sample:
 
-<img width="1469" height="773" alt="Screenshot 2026-04-15 at 8 09 58 AM" src="https://github.com/user-attachments/assets/e8935c8b-b1c1-48bb-bd69-8845cc2e0613" />
+<img width="1469" height="773" alt="Screenshot 2026-04-15 at 8 09 58 AM" src="https://github.com/user-attachments/assets/e8935c8b-b1c1-48bb-bd69-8845cc2e0613" /
 
 
 **Step 2: Review the VPC topology.**  
 Check the auto generated resource map displaying the public and private subnets, Internet Gateway, and NAT Gateway.
 
->*Screenshot: VPC resource map showing public/private subnets, IGW, and NAT GW. [Mandatory]*
+*Screenshot: VPC resource map showing public/private subnets, IGW, and NAT GW. [Mandatory]*
 
->Sample:
+Sample:
 
-<img width="1259" height="396" alt="Screenshot 2026-04-15 at 8 10 32 AM" src="https://github.com/user-attachments/assets/97050c0c-6af8-4cdc-902a-90de6ce32205" />
+<img width="1259" height="396" alt="Screenshot 2026-04-15 at 8 10 32 AM" src="https://github.com/user-attachments/assets/97050c0c-6af8-4cdc-902a-90de6ce32205" /
 
-<img width="1258" height="447" alt="Screenshot 2026-04-15 at 8 10 45 AM" src="https://github.com/user-attachments/assets/72f44baf-4641-45d2-8076-ed234a5a0292" />
+<img width="1258" height="447" alt="Screenshot 2026-04-15 at 8 10 45 AM" src="https://github.com/user-attachments/assets/72f44baf-4641-45d2-8076-ed234a5a0292" /
 
-<img width="1255" height="439" alt="Screenshot 2026-04-15 at 8 10 56 AM" src="https://github.com/user-attachments/assets/9c77ad59-e2fa-4c58-adff-4a7baa1711d2" />
+<img width="1255" height="439" alt="Screenshot 2026-04-15 at 8 10 56 AM" src="https://github.com/user-attachments/assets/9c77ad59-e2fa-4c58-adff-4a7baa1711d2" /
 
-<img width="1263" height="443" alt="Screenshot 2026-04-15 at 8 11 06 AM" src="https://github.com/user-attachments/assets/e3475686-0037-4fe9-9fe3-7e678d898a31" />
+<img width="1263" height="443" alt="Screenshot 2026-04-15 at 8 11 06 AM" src="https://github.com/user-attachments/assets/e3475686-0037-4fe9-9fe3-7e678d898a31" /
 
 
 **Step 3: Verify Route Tables.**  
   - **Public route table:** Traffic (0.0.0.0/0) directed to the Internet Gateway, simulating public cloud access.
     
->Screenshot: Route table entries for public subnets [Mandatory].
+Screenshot: Route table entries for public subnets [Mandatory].
 
->Sample:
+Sample:
 
-<img width="1458" height="544" alt="Screenshot 2026-04-15 at 8 14 44 AM" src="https://github.com/user-attachments/assets/4da0e9ed-1f6e-4625-888a-3fb250d86edd" />
+<img width="1458" height="544" alt="Screenshot 2026-04-15 at 8 14 44 AM" src="https://github.com/user-attachments/assets/4da0e9ed-1f6e-4625-888a-3fb250d86edd" /
 
 
   - **Private route table:** Traffic (0.0.0.0/0) directed to the NAT Gateway, ensuring controlled outbound access.
 
->Screenshot: Route table entries for private subnets [Mandatory].
+Screenshot: Route table entries for private subnets [Mandatory].
 
->Sample:
+Sample:
 
-<img width="1459" height="567" alt="Screenshot 2026-04-15 at 8 16 09 AM" src="https://github.com/user-attachments/assets/ef915750-f1e6-4d9b-9047-76e163f19b9e" />
+<img width="1459" height="567" alt="Screenshot 2026-04-15 at 8 16 09 AM" src="https://github.com/user-attachments/assets/ef915750-f1e6-4d9b-9047-76e163f19b9e" /
 
-<img width="1459" height="563" alt="Screenshot 2026-04-15 at 8 16 24 AM" src="https://github.com/user-attachments/assets/404b09e2-3a72-4df6-9770-fb61d9bdd4c2" />
+<img width="1459" height="563" alt="Screenshot 2026-04-15 at 8 16 24 AM" src="https://github.com/user-attachments/assets/404b09e2-3a72-4df6-9770-fb61d9bdd4c2" /
 
 
 **Step 4: Launch an EC2 Instance in the Public Subnet.**  
-  - Go to EC2 > Instances > Launch instance.
+  - Go to EC2  Instances  Launch instance.
   - **Name:** `Public WebServer`
     - Application and OS Images (Amazon Machine Image): `Amazon Linux`
     - Instance type: `t2.micro`
@@ -104,11 +104,11 @@ Check the auto generated resource map displaying the public and private subnets,
       - Allow SSH (22), HTTP (80), and HTTPS (443) from 0.0.0.0/0
     - Configure storage: 8 GiB, GP3
 
-> Screenshot: EC2 launch configuration showing public subnet selection [Mandatory].
+ Screenshot: EC2 launch configuration showing public subnet selection [Mandatory].
 
-> Sample:
+ Sample:
 
-<img width="1459" height="504" alt="Screenshot 2026-04-15 at 8 37 56 AM" src="https://github.com/user-attachments/assets/dd26e14c-098a-41f1-b245-4556f1aa6b2c" />
+<img width="1459" height="504" alt="Screenshot 2026-04-15 at 8 37 56 AM" src="https://github.com/user-attachments/assets/dd26e14c-098a-41f1-b245-4556f1aa6b2c" /
 
 
 **Step 5: Launch an EC2 Instance in the Private Subnet.**  
@@ -125,23 +125,23 @@ Check the auto generated resource map displaying the public and private subnets,
       - Name: `My Firewall 2`
       - Description: `Allow SSH and MySQL only from (10.0.0.0/16)`
       - Allow MySQL (3306) and Allow SSH (22) only from 10.0.0.0/16.
->Sample:
-<img width="861" height="539" alt="Screenshot 2026-04-15 at 9 09 05 AM" src="https://github.com/user-attachments/assets/41310c24-73f6-4455-b85e-5aea7aff468f" />
+Sample:
+<img width="861" height="539" alt="Screenshot 2026-04-15 at 9 09 05 AM" src="https://github.com/user-attachments/assets/41310c24-73f6-4455-b85e-5aea7aff468f" /
 
     - Configure storage: 8 GiB, GP3
 
-> Screenshot: EC2 launch configuration showing private subnet [Mandatory].
+ Screenshot: EC2 launch configuration showing private subnet [Mandatory].
 
-> Sample:
+ Sample:
 
-<img width="1459" height="505" alt="Screenshot 2026-04-15 at 9 12 53 AM" src="https://github.com/user-attachments/assets/d5d5dc0c-7e99-46a4-a5da-e065fe0527c7" />
+<img width="1459" height="505" alt="Screenshot 2026-04-15 at 9 12 53 AM" src="https://github.com/user-attachments/assets/d5d5dc0c-7e99-46a4-a5da-e065fe0527c7" /
 
 
 **Step 6: Test Connectivity.**  
   - **SSH into the public instance** and from there, **SSH into the private instance** (using the private IP).
   - Syntax:
   ```bash
-  ssh -i key.pem ec2-user@<public-instance-public-ip>
+  ssh -i key.pem ec2-user@<public-instance-public-ip
   ```
   - Example:
   ```
@@ -151,13 +151,13 @@ Check the auto generated resource map displaying the public and private subnets,
   ping -c 4 www.google.com
   ```
 
->Screenshot: Terminal showing a successful SSH hop and a ping from a public instance [Mandatory].
+Screenshot: Terminal showing a successful SSH hop and a ping from a public instance [Mandatory].
 
-> Sample:
+ Sample:
 
-<img width="1049" height="304" alt="Screenshot 2026-04-15 at 9 18 21 AM" src="https://github.com/user-attachments/assets/fa62d653-1c0e-4aa6-9f78-a6a9c1b0a77c" />
+<img width="1049" height="304" alt="Screenshot 2026-04-15 at 9 18 21 AM" src="https://github.com/user-attachments/assets/fa62d653-1c0e-4aa6-9f78-a6a9c1b0a77c" /
 
-<img width="1047" height="164" alt="Screenshot 2026-04-15 at 9 19 14 AM" src="https://github.com/user-attachments/assets/2d151aa5-b4d1-44f8-bc85-2a4ce5a988bd" />
+<img width="1047" height="164" alt="Screenshot 2026-04-15 at 9 19 14 AM" src="https://github.com/user-attachments/assets/2d151aa5-b4d1-44f8-bc85-2a4ce5a988bd" /
 
   - From the private instance, SSH from the public instance there, **SSH into the private instance** (using the private IP)
     - Example:
@@ -172,30 +172,30 @@ Check the auto generated resource map displaying the public and private subnets,
    ping google.com
    ```
 
->Screenshot: Terminal showing a successful SSH hop and a ping from a private instance [Mandatory]. 
+Screenshot: Terminal showing a successful SSH hop and a ping from a private instance [Mandatory]. 
 
->Sample:
+Sample:
 
-<img width="788" height="328" alt="Screenshot 2026-04-15 at 12 19 36 PM" src="https://github.com/user-attachments/assets/6d6a6e94-54a1-48ff-82a0-3dc7ad8db421" />
+<img width="788" height="328" alt="Screenshot 2026-04-15 at 12 19 36 PM" src="https://github.com/user-attachments/assets/6d6a6e94-54a1-48ff-82a0-3dc7ad8db421" /
 
 
 **Step 7: Configure Network ACLs for Additional Security.**  
-  - Navigate to VPC > Network ACLs
+  - Navigate to VPC  Network ACLs
   - Select the NACL associated with the private subnets
   - Inbound rules: Edit to Deny all traffic
   - Add Allow rules for traffic from the public subnet CIDRs (e.g., `10.0.1.0/24` and `10.0.2.0/24`)
 
->Screenshot: Network ACL rules for private subnet.
+Screenshot: Network ACL rules for private subnet.
 
->Sample:
+Sample:
 
-<img width="1458" height="669" alt="Screenshot 2026-04-15 at 12 35 09 PM" src="https://github.com/user-attachments/assets/0be10d77-c977-459f-a0c1-eb2f9947d33b" />
+<img width="1458" height="669" alt="Screenshot 2026-04-15 at 12 35 09 PM" src="https://github.com/user-attachments/assets/0be10d77-c977-459f-a0c1-eb2f9947d33b" /
 
-<img width="1160" height="370" alt="Screenshot 2026-04-15 at 12 36 57 PM" src="https://github.com/user-attachments/assets/5905d988-2c98-4608-ae78-6125307bd546" />
+<img width="1160" height="370" alt="Screenshot 2026-04-15 at 12 36 57 PM" src="https://github.com/user-attachments/assets/5905d988-2c98-4608-ae78-6125307bd546" /
 
 
 **Step 8: Explore Hybrid Cloud Concepts (Observation Only)**  
-  - Navigate to **VPC** > S**ite-to-Site** VPN Connections.
+  - Navigate to **VPC**  S**ite-to-Site** VPN Connections.
   - Click Create VPN connection (do not complete creation).
   - Observe required fields:
     - **Target Gateway Type**: Virtual Private Gateway (created separately).
@@ -206,7 +206,7 @@ Check the auto generated resource map displaying the public and private subnets,
     
 
 **Step 9: Create a VPC Peering Connection (Observation Only)**  
-- Navigate to **VPC > Peering Connections**.
+- Navigate to **VPC  Peering Connections**.
 - Click **Create peering connection**.
 - Configure request:
   - **Name**: Provide a descriptive name (e.g., `vpc-a-to-vpc-b`).
@@ -214,12 +214,12 @@ Check the auto generated resource map displaying the public and private subnets,
   - **Accepter**: Select another VPC in your account/region.
 - Click **Create peering connection**.
 - Select the new pending request in the list.
-- Click **Actions** > **Accept request**.
+- Click **Actions**  **Accept request**.
 - In the confirmation dialog, click **Accept request**.
 - **Update Route Tables** (repeat for both VPCs):
   - Navigate to **Route Tables**.
   - Select the main route table for **VPC A**.
-  - **Routes** tab > **Edit routes** > **Add route**:
+  - **Routes** tab  **Edit routes**  **Add route**:
     - Destination: CIDR block of **VPC B** (e.g., `10.1.0.0/16`).
     - Target: Select **Peering Connection** and choose the new PCX ID.
   - **Save routes**.
