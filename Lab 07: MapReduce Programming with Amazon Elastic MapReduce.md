@@ -1,4 +1,4 @@
-# Implementing the MapReduce Programming Model Using Amazon EMR
+# Implementing the MapReduce Programming Model Using Amazon Elastic MapReduce
 
 ---
 
@@ -56,10 +56,10 @@ MapReduce is a programming model for processing large datasets in parallel acros
   - Click **Create folder** again -> Name it `input` -> Click **Create folder** *(at bucket root)*
 
 >*Sample: [Optional]*
-
+---
 <img width="1457" height="335" alt="Screenshot 2026-04-20 at 7 14 11 AM" src="https://github.com/user-attachments/assets/d7e33f04-7341-43c7-920c-472360170ab9" />
 
-
+---
 **1b. Create the Input File Locally**
 
 - On your local machine, create `input.txt`:
@@ -83,10 +83,10 @@ MapReduce is a programming model for processing large datasets in parallel acros
 > *Screenshot checkpoint: S3 bucket showing `input/input.txt` (only `input.txt` inside `input/`, no subfolders)*
 
 >Sample:
-
+---
 <img width="1457" height="330" alt="Screenshot 2026-04-20 at 7 19 09 AM" src="https://github.com/user-attachments/assets/249cdb14-b1db-413b-9641-db09ece73862" />
 
-
+---
 
 **Step 2: Create the EMR Cluster**
 
@@ -128,12 +128,13 @@ MapReduce is a programming model for processing large datasets in parallel acros
 >*Screenshot checkpoint: Cluster showing status [Mandatory]*
 
 >Sample:
-
+---
 <img width="1455" height="419" alt="Screenshot 2026-04-20 at 12 56 07 PM" src="https://github.com/user-attachments/assets/2484406a-a739-4306-96a1-c88206284e12" />
 
+---
 <img width="1455" height="416" alt="Screenshot 2026-04-20 at 12 58 09 PM" src="https://github.com/user-attachments/assets/7341f377-faf0-4abb-ab39-94fc1ebdad3a" />
 
-
+---
 **Step 4: Write and Upload the MapReduce Scripts**
 
 **4a. Create the Python Files Locally**
@@ -190,10 +191,10 @@ if current_word:
 >*Screenshot checkpoint: S3 `scripts/` folder showing both files [Mandatory].*
 
 >Sample:
-
+---
 <img width="1459" height="338" alt="Screenshot 2026-04-20 at 7 22 00 AM" src="https://github.com/user-attachments/assets/edda2dea-cd85-48ca-af7f-1d6e892ff5de" />
 
-
+---
 **Step 5: Add a Streaming Step to the Cluster**
 
 1. Go to **EMR Console** -> Click your `MapReduce-Lab-Cluster`
@@ -215,10 +216,10 @@ if current_word:
 4. Click **Add step**
 
 >Sample:
-
+---
 <img width="1454" height="685" alt="Screenshot 2026-04-20 at 1 01 55 PM" src="https://github.com/user-attachments/assets/f9a9eecc-f4b3-43f3-bae2-2d45ba1def53" />
 
-
+---
 **Step 6: Monitor Job Execution**
 
   1. Stay on the **Steps** tab of your cluster
@@ -230,10 +231,10 @@ if current_word:
 >*Screenshot checkpoint: Step showing Completed status in green*
 
 >Sample:
-
+---
 <img width="1456" height="576" alt="Screenshot 2026-04-20 at 1 08 04 PM" src="https://github.com/user-attachments/assets/32521707-ae3c-44b5-af52-7c4021da591e" />
 
-
+---
 **Step 7: View the Output in S3**
 
 1. Go to **S3** -> Navigate to:
@@ -243,15 +244,15 @@ if current_word:
 2. You'll see files like `part-00000`, `part-00001`, and `_SUCCESS`
 3. Click *part-00000* -> Click Download
 4. Open the file; it should look like:
-
+---
 <img width="294" height="309" alt="Screenshot 2026-04-20 at 1 10 52 PM" src="https://github.com/user-attachments/assets/250e0dd6-6c95-402d-bec1-b979cdf6c324" />
 
-
+---
 >*Screenshot: S3 output folder [Mandatory]*
-
+---
 <img width="1455" height="374" alt="Screenshot 2026-04-20 at 1 12 39 PM" src="https://github.com/user-attachments/assets/fcd7c577-5b58-46da-bfbd-fdfcddc6c1b0" />
 
-
+---
 **Step 8: Examine Hadoop Job Logs and Metrics**
   - Go to **EMR Console** -> Click your cluster
   - Click the **Application user interfaces** tab
@@ -262,13 +263,13 @@ if current_word:
 >*Screenshot checkpoint: Hadoop ResourceManager job statistics page [Mandatory].*
 
 >Sample:
-
+---
 <img width="1284" height="286" alt="Screenshot 2026-04-20 at 1 32 10 PM" src="https://github.com/user-attachments/assets/5083af90-a379-4966-b05a-f566fb37ddbb" />
 
-
+---
 >[Click here to download output in pdf format](https://github.com/user-attachments/files/26887426/All.Applications.pdf)
 
-
+---
 
 **Step 9: Run a Comparison with a Larger Dataset** **[Optional]**
 
