@@ -40,10 +40,10 @@ S3 uses a flat namespace with buckets acting as containers and objects as the st
 >*Screenshot: S3 bucket created. [Mandatory]*
 
 >Sample:
-
+---
 <img width="1459" height="598" alt="Screenshot 2026-04-13 at 6 13 43 AM" src="https://github.com/user-attachments/assets/f843fd74-e7f8-4c48-b7b2-6cb46cc657eb" />
 
-
+---
 **Step 3:** Upload files to the bucket:
   - Click "Upload" and add files (for example, index.html, an image, or a PDF)
   - Note that the storage class defaults to "S3 Standard"
@@ -51,10 +51,10 @@ S3 uses a flat namespace with buckets acting as containers and objects as the st
 >*Screenshot: S3 bucket with uploaded objects showing storage class. [Mandatory]*
 
 > Sample:
-
+---
 <img width="1459" height="371" alt="Screenshot 2026-04-13 at 6 17 59 AM" src="https://github.com/user-attachments/assets/ccc3854f-455d-4231-9d5f-ded240aaa28a" />
 
-
+---
 **Step 4:** Enable Versioning:
   - Bucket > Properties > Bucket Versioning > Enable
   - Upload the same file again with modified content (Compress the image using https://tinypng.com/index.html & upload again)
@@ -63,13 +63,13 @@ S3 uses a flat namespace with buckets acting as containers and objects as the st
 >*Screenshot: S3 versioning showing multiple versions of the same object. [Mandatory]*
 
 >Sample:
-
+---
 <img width="1459" height="371" alt="Screenshot 2026-04-13 at 6 17 59 AM" src="https://github.com/user-attachments/assets/ab8c66f0-4a8e-4df4-825f-ba72992830c7" />
 
-
+---
 <img width="1459" height="362" alt="Screenshot 2026-04-13 at 6 36 54 AM" src="https://github.com/user-attachments/assets/99f9745e-4b1f-4510-9b52-2e99ffee36bc" />
 
-
+---
 **Step 5:** Configure Static Website Hosting:
   - Bucket > Properties > Static website hosting > Enable
   - Index document: `index.html`
@@ -78,10 +78,10 @@ S3 uses a flat namespace with buckets acting as containers and objects as the st
 >*Screenshot: Static website hosting configuration.[Mandatory]*
 
 >Sample:
-
+---
 <img width="1457" height="668" alt="Screenshot 2026-04-13 at 6 42 35 AM" src="https://github.com/user-attachments/assets/b8b885f1-ba82-41fa-9e92-d6b4131db24e" />
 
-
+---
 **Step 6:** Update the bucket policy to allow public read access for the website:
   - Bucket > Permissions > Uncheck "Block all public access" > Confirm
   - Add the following bucket policy:
@@ -104,10 +104,10 @@ S3 uses a flat namespace with buckets acting as containers and objects as the st
 >*Screenshot: Bucket policy editor with the public read policy applied. [Mandatory]**
 
 >Sample:
-
+---
 <img width="1455" height="602" alt="Screenshot 2026-04-13 at 6 58 16 AM" src="https://github.com/user-attachments/assets/bcf4a339-c669-4c05-ae0f-85cb50644621" />
 
-
+---
 
 **Step 7:** Create an `index.html` file with the following content:
 
@@ -129,10 +129,10 @@ Upload the file and open the S3 website endpoint URL in a browser.
 > *Screenshot: Browser showing the S3 hosted static website. [Mandatory]*
 
 > Sample:
-
+---
 <img width="1467" height="313" alt="Screenshot 2026-04-13 at 7 02 17 AM" src="https://github.com/user-attachments/assets/9d3a15ca-432a-4753-96b8-47290aacfd58" />
 
-
+---
 **Step 8:** Configure a Lifecycle Rule:
   - Bucket > Management > Create lifecycle rule
   - Rule Name: `TransitionToGlacierExpireInYear`
@@ -144,7 +144,7 @@ Upload the file and open the S3 website endpoint URL in a browser.
 > *Screenshot: Lifecycle rule configuration. [Mandatory]*
 
 > Sample:
-
+---
 <img width="1458" height="394" alt="Screenshot 2026-04-13 at 7 30 22 AM" src="https://github.com/user-attachments/assets/cadd1ee8-8a4d-435b-b3dc-d487a3db1b68" />
 
 ---
@@ -162,10 +162,10 @@ Upload the file and open the S3 website endpoint URL in a browser.
 - Launch Instance
 
 >Sample:
-
+---
 <img width="1459" height="266" alt="Screenshot 2026-04-13 at 8 12 25 AM" src="https://github.com/user-attachments/assets/5b165755-2731-4dd0-a6cb-24ad062b2eb1" />
 
-  
+---
 **Step 9:** EC2 > Volumes > Create Volume with the following settings:
   - Volume type: General purpose SSD (gp3)
   - Size: 10 GB
@@ -174,17 +174,19 @@ Upload the file and open the S3 website endpoint URL in a browser.
 >*Screenshot: EBS volume creation page. [Mandatory]*
 
 >Sample:
-
+---
 ![Screenshot 2026-04-13 at 8 14 42 AM](https://github.com/user-attachments/assets/7a1ff713-96c7-42df-a931-6d41f2683448)
 
-
+---
 **Step 10:** Attach the volume to your EC2 instance:
   - Select the volume > Actions > Attach Volume > Select your instance > Device name: /dev/sdb
   - SSH into the instance and mount the volume using the following commands:
-
+  
+>Sample
+---
 <img width="960" height="311" alt="Screenshot 2026-04-13 at 8 17 45 AM" src="https://github.com/user-attachments/assets/5f772b3f-4f36-4239-a0b0-e156ee367f3e" />
 
-
+---
 ```bash name=mount-ebs.sh
 sudo lsblk
 ```
@@ -205,16 +207,16 @@ cat /data/test.txt
 >*Screenshot: Terminal showing the mounted EBS volume and file operations. [Mandatory]*
 
 >Sample:
-
+---
 <img width="705" height="105" alt="Screenshot 2026-04-13 at 8 22 02 AM" src="https://github.com/user-attachments/assets/5bdf612a-3766-4839-97b1-915fc00ceb87" />
 
-
+---
 <img width="651" height="175" alt="Screenshot 2026-04-13 at 8 22 16 AM" src="https://github.com/user-attachments/assets/ee505f79-6746-42ff-a4b0-b3d94bf3c727" />
 
-
+---
 <img width="684" height="86" alt="Screenshot 2026-04-13 at 8 22 35 AM" src="https://github.com/user-attachments/assets/3340b3f7-e376-4d17-a8f3-8eca1e987de1" />
 
-
+---
 <img width="708" height="122" alt="Screenshot 2026-04-13 at 8 22 46 AM" src="https://github.com/user-attachments/assets/86dc86d8-01ea-4845-b38a-a80ef0a5df87" />
 
 ---
