@@ -18,6 +18,7 @@
 Cloud security operates under the Shared Responsibility Model, which divides security obligations between AWS and the customer.
 
   - **AWS responsibility** ("Security of the cloud"): Physical infrastructure, hypervisor, and networking hardware.
+  
   - **Customer responsibility** ("Security in the cloud"): Data, IAM, encryption, OS patching, and firewall rules.
 
 **Security Concepts:**
@@ -113,10 +114,10 @@ Cloud security operates under the Shared Responsibility Model, which divides sec
 >Screenshot: Page showing details of the key [Mandatory]
 
 >Sample:
-
+---
 <img width="1455" height="719" alt="Screenshot 2026-04-22 at 7 38 38 AM" src="https://github.com/user-attachments/assets/3cf25921-16b6-497a-8186-8719998ee43a" />
 
-
+---
 **Step 7: Enable S3 Server Side Encryption**
 
   1. Open your S3 bucket and go to the Properties tab.
@@ -146,12 +147,13 @@ Cloud security operates under the Shared Responsibility Model, which divides sec
 > *Screenshot: Take a screenshot of the rules for both security groups [Mandatory].*
 
 > Sample:
-
+---
 <img width="1470" height="413" alt="Screenshot 2026-04-22 at 7 48 29 AM" src="https://github.com/user-attachments/assets/bde4e98a-3d46-4f66-80d3-2c60f57ecf6c" />
 
+---
 <img width="1470" height="395" alt="Screenshot 2026-04-22 at 7 55 59 AM" src="https://github.com/user-attachments/assets/6a29b79b-8244-4e2f-82f4-3e16f9221fa4" />
 
-
+---
 **Step 10: Configure Network ACLs**
 
   1. In the VPC console, go to Network ACLs and create a new NACL for your private subnet.
@@ -162,10 +164,10 @@ Cloud security operates under the Shared Responsibility Model, which divides sec
 >*Screenshot: Take a screenshot of the NACL rules [Mandatory].*
 
 >Sample:
-
+---
 <img width="1470" height="395" alt="Screenshot 2026-04-22 at 8 03 52 AM" src="https://github.com/user-attachments/assets/ae0d5721-f88f-498f-842f-d3a842fa9e32" />
 
-
+---
 **Part D: Security Monitoring**
 
 **Step 11: Enable AWS CloudTrail**
@@ -178,10 +180,10 @@ Cloud security operates under the Shared Responsibility Model, which divides sec
 >*Screenshot: Complete the setup and take a screenshot of the trail configuration [Mandatory].*
 
 >Sample:
-
+---
 <img width="1470" height="245" alt="Screenshot 2026-04-22 at 8 11 58 AM" src="https://github.com/user-attachments/assets/00d9406a-0cbc-41b4-8f26-971674208ced" />
 
-
+---
 **Step 12: View CloudTrail Events**
 
   1. In CloudTrail, open Event History.
@@ -189,7 +191,7 @@ Cloud security operates under the Shared Responsibility Model, which divides sec
 >*Screenshot: Take a screenshot of the event history [Mandatory].*
 
 >Sample:
-
+---
 <img width="1458" height="685" alt="Screenshot 2026-04-22 at 8 17 09 AM" src="https://github.com/user-attachments/assets/7f91641c-c4a3-429e-a68d-a5fccf364ac7" />
 
 ---
