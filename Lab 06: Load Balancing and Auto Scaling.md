@@ -301,10 +301,10 @@ echo "=== User Data Script Completed Successfully at $(date) ==="
 > *Screenshot: Launch template with corrected user data script [Mandatory]*
 
 > Sample:
-
+---
 <img width="1457" height="698" alt="Screenshot 2026-04-17 at 6 46 54 AM" src="https://github.com/user-attachments/assets/27b90576-5e9a-4bfd-818d-3f346791d978" />
 
-
+---
 
 **Step 3: Create a Target Group**
 - Navigate to **EC2 > Load Balancing > Target Groups > Create target group**
@@ -325,10 +325,10 @@ echo "=== User Data Script Completed Successfully at $(date) ==="
 > *Screenshot: Target group configuration [Mandatory]*
 
 > Sample:
-
+---
 <img width="1458" height="640" alt="Screenshot 2026-04-17 at 6 51 07 AM" src="https://github.com/user-attachments/assets/c1982670-a27e-4cb9-b597-413b2c6757cd" />
 
-
+---
 
 **Step 4: Create the Application Load Balancer**
 - Navigate to **EC2 > Load Balancers > Create load balancer**
@@ -388,26 +388,26 @@ echo "=== User Data Script Completed Successfully at $(date) ==="
   - Navigate to **EC2 > Instances** and confirm two instances with prefix `web-asg` are **Running**
     
 > Sample :
-
+---
 <img width="1444" height="311" alt="Screenshot 2026-04-19 at 7 17 03 AM" src="https://github.com/user-attachments/assets/05992dd3-5cc1-4518-8f0d-3a28572b9f04" />
 
-
+---
   - **Test individual instances:** Copy public IP of one instance and test `http://[public-ip]` in browser
     
 > Sample:
-
+---
 <img width="1316" height="853" alt="Screenshot 2026-04-19 at 7 24 45 AM" src="https://github.com/user-attachments/assets/964c6af0-5ddc-49d8-bf73-bb6c9c865f4b" />
 
-
+---
   - Navigate to **Target Groups > web-target-group > Targets tab** and confirm both instances show **Healthy** status
 
 > *Screenshot: Target group showing healthy instances [Mandatory]*
 
 > Sample:
-
+---
 <img width="1459" height="593" alt="Screenshot 2026-04-19 at 7 26 15 AM" src="https://github.com/user-attachments/assets/92986096-ddd7-4e0e-8f11-ce09f14d3660" />
 
-
+---
 >*Troubleshooting if instances remain unhealthy (do not include this on lab report):*
 >SSH into an instance and check:
 >```bash
@@ -427,13 +427,13 @@ echo "=== User Data Script Completed Successfully at $(date) ==="
 > *Screenshot: Browser showing different instance IDs on consecutive refreshes [Mandatory]*
 
 > Sample:
-
+---
 <img width="1314" height="856" alt="Screenshot 2026-04-19 at 7 28 26 AM" src="https://github.com/user-attachments/assets/03dff8db-4b4b-414f-a323-cfc724706153" />
 
-
+---
 <img width="1304" height="857" alt="Screenshot 2026-04-19 at 7 27 23 AM" src="https://github.com/user-attachments/assets/723c5976-80cd-4bd0-b205-51f415e8ea6b" />
 
-
+---
 **Step 8: Trigger a Scale Out Event**
   - SSH into one of the running instances:
   ```bash
@@ -450,26 +450,27 @@ echo "=== User Data Script Completed Successfully at $(date) ==="
   - Navigate to **Auto Scaling Groups > web-asg > Activity tab**
     
 > Sample [Mandatory]:
-
+---
 <img width="1459" height="346" alt="Screenshot 2026-04-17 at 11 53 26 AM" src="https://github.com/user-attachments/assets/86ea0cc3-8a42-47ad-8d5f-787e1e5e1caa" />
 
+---
 <img width="1457" height="489" alt="Screenshot 2026-04-19 at 7 41 32 AM" src="https://github.com/user-attachments/assets/741afd61-8966-4d3c-9427-f2abcbc3d74b" />
 
-
+---
   - Within 3-5 minutes, observe the new instance launching
     
 > Sample [Mandatory]:
-
+---
 <img width="1459" height="294" alt="Screenshot 2026-04-19 at 7 42 00 AM" src="https://github.com/user-attachments/assets/36020e21-0ee7-4a04-8eff-02d3b20fdbe4" />
 
-
+---
   - Monitor **CloudWatch > Alarms** to see CPU alarm trigger
     
 > Sample [Mandatory]:
-
+---
 <img width="1459" height="402" alt="Screenshot 2026-04-19 at 7 47 02 AM" src="https://github.com/user-attachments/assets/ac670a86-99fe-48bb-a20a-e9ecbbca91d2" />
 
-
+---
 **Step 9: Observe Scale In Behavior**
   - Allow stress test to complete (5 minutes)
   - Return to **Auto Scaling Groups > web-asg > Activity tab**
@@ -477,10 +478,10 @@ echo "=== User Data Script Completed Successfully at $(date) ==="
   - Verify desired capacity returns to 2
 
 >Sample [Mandatory]:
-
+---
 <img width="1444" height="528" alt="Screenshot 2026-04-19 at 8 43 56 AM" src="https://github.com/user-attachments/assets/bad14519-5e0d-4381-bc78-c2a790bc24be" />
 
-
+---
 **Step 10: Test Self Healing**
   - Navigate to **EC2 > Instances**
   - Select one Auto Scaling managed instance
@@ -489,7 +490,7 @@ echo "=== User Data Script Completed Successfully at $(date) ==="
   - Confirm new instance launches automatically within 2-3 minutes
 
 > Sample [Mandatory]:
-
+---
 ![Screenshot 2026-04-19 at 8 45 06 AM](https://github.com/user-attachments/assets/ab496937-f3be-4188-b595-bd272081f852)
 
 ---
