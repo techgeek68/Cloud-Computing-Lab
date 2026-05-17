@@ -198,12 +198,13 @@ SELECT * FROM students;
 <img width="1455" height="154" alt="Screenshot 2026-04-27 at 1 00 49 PM" src="https://github.com/user-attachments/assets/1f899529-1960-4eaf-bcef-96d3d388c937" />
 
 ---
+---
 **Step 5: Configure Automated Backups [Optional]**
  1. In the RDS console, click on your database instance `cloud-lab-db`.
  2. Click the **Modify** button (top right).
  3. Scroll down to the **Backup** section and configure:
    - Backup retention period: **7 days**
-   - Backup window: select any preferred time window (Start time 00:30 UTC, Duration 1 hours)
+   - Backup window: select any preferred time window (Start time 00:30 UTC, Duration 1 hour)
  4. Scroll down and click **Continue**.
  5. Under **Scheduling of modifications**, select **Apply immediately**.
  6. Click **Modify DB instance**.
@@ -215,7 +216,7 @@ SELECT * FROM students;
  3. Review the available configuration options such as destination region, instance class, and storage.
 
 ---
-
+---
 **Part B: Amazon DynamoDB (NoSQL Database)**
 
 
