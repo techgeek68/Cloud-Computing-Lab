@@ -76,12 +76,13 @@ Both services are foundational components in cloud application architecture. The
  14. Click the **Connectivity & security** tab and copy the **Endpoint** address (it looks like: `cloud-lab-db.xxxxxxxxx.us-east-1.rds.amazonaws.com`). Save this; you will need it in Step 3.
    
 >*Screenshot: Take a screenshot of the RDS dashboard showing the **Available** status and the endpoint address [Mandatory].*
-
+---
 <img width="1458" height="552" alt="Screenshot 2026-04-27 at 8 46 28 AM" src="https://github.com/user-attachments/assets/2639112a-9613-49c9-9cca-84bfd5a48ccb" />
 
+---
 <img width="1452" height="713" alt="Screenshot 2026-04-27 at 8 54 46 AM" src="https://github.com/user-attachments/assets/cd3d52d8-483f-445a-84bd-e1af1a53964e" />
 
-
+---
 **Step 2: Launch EC2 Instance and Edit Inbound Rule to the Security Groups**
 
 1. Navigate into **EC2**
@@ -129,9 +130,10 @@ chmod 400 CloudLab.pem
 ssh -i CloudLab.pem ec2-user@<your-ec2-public-ip>
 ```
 >Sample:
-
+---
 <img width="1453" height="615" alt="Screenshot 2026-04-27 at 11 16 26 AM" src="https://github.com/user-attachments/assets/1d264496-198a-4bed-af48-558407b486e9" />
 
+---
 2. Register your Red Hat Server
 ```bash
 sudo rhc connect
@@ -140,9 +142,10 @@ sudo rhc connect
 >Enter your Red Hat Academy Login Password
 
 >Sample
-
+---
 <img width="1456" height="268" alt="Screenshot 2026-04-27 at 11 21 45 AM" src="https://github.com/user-attachments/assets/6dc8b6fd-c5f4-446a-96ab-00dd7a68fd9a" />
 
+---
 3. Install the MySQL client:
 ```bash
 sudo yum install mysql* -y
@@ -191,11 +194,10 @@ SELECT * FROM students;
 >Edit: `UPDATE students SET email = 'kamal@gmail.com' WHERE id = 9;` `UPDATE students SET course = 'Cloud Computing' WHERE id = 8;`
 
 >*Screenshot: Take a screenshot of the MySQL terminal showing the table creation and the `SELECT *` query results [Mandatory].*
-
+---
 <img width="1455" height="154" alt="Screenshot 2026-04-27 at 1 00 49 PM" src="https://github.com/user-attachments/assets/1f899529-1960-4eaf-bcef-96d3d388c937" />
 
-
-
+---
 **Step 5: Configure Automated Backups [Optional]**
  1. In the RDS console, click on your database instance `cloud-lab-db`.
  2. Click the **Modify** button (top right).
@@ -302,10 +304,10 @@ SELECT * FROM students;
 ```
 
 >*Screenshot: Take a screenshot of the Explore table items view showing all inserted items. [Mandatory].*
-
+---
 <img width="1470" height="529" alt="Screenshot 2026-04-27 at 12 43 09 PM" src="https://github.com/user-attachments/assets/4a1c2fbe-d452-4263-abf3-b38dfad2beb4" />
 
-
+---
 **Step 9: Query and Scan the Table**
 
 1. In the `CloudLabCourses` table, click **Explore items**.
@@ -330,11 +332,11 @@ SELECT * FROM students;
 7. Click **Run** - only items where Hours > 8 should appear (Units with 9 and 10 hours).
 
 >*Screenshot: Take a screenshot of both the query results and the scan filter results [Mandatory]*.
-
+---
 <img width="1458" height="716" alt="Screenshot 2026-04-27 at 12 51 37 PM" src="https://github.com/user-attachments/assets/1778cc93-3f09-4c49-b373-5a4c2d92e7cb" />
 
+---
 <img width="1470" height="608" alt="Screenshot 2026-04-27 at 12 49 36 PM" src="https://github.com/user-attachments/assets/5ac1ae6c-b406-4ee5-bb28-0644870c4501" />
-
 
 ---
 
