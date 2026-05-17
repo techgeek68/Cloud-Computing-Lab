@@ -14,11 +14,11 @@
 
 Cloud computing is the delivery of computing resources (servers, storage, databases, networking, and software) over the internet. AWS (Amazon Web Services) is the leading cloud platform, offering 200+ services across data centers worldwide. The evolution of cloud computing progressed from mainframes to client server architecture, then to virtualization, and finally to cloud computing. Key characteristics defined by NIST include:
 
-  1. **On-demand self service** – Users provision resources without human intervention
-  2. **Broad network access** – Services accessible over the internet
-  3. **Resource pooling** – Multi tenant model serving multiple consumers
-  4. **Rapid elasticity** – Resources scale up or down automatically
-  5. **Measured service** – Pay per use billing model
+  1. **On-demand self service**: Users provision resources without human intervention
+  2. **Broad network access**: Services accessible over the internet
+  3. **Resource pooling**: Multi tenant model serving multiple consumers
+  4. **Rapid elasticity**: Resources scale up or down automatically
+  5. **Measured service**: Pay per use billing model
 
 AWS organizes its infrastructure into **Regions** (geographic areas) and **Availability Zones** (isolated data centers within a region), providing high availability and fault tolerance. The AWS Free Tier allows new users to explore services at no cost for 12 months.
 
