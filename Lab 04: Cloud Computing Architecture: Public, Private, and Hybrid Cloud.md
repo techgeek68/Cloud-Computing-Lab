@@ -48,7 +48,7 @@ Amazon VPC (Virtual Private Cloud) allows you to create a logically isolated sec
 
 >Sample:
 ---
-<img width="1469" height="773" alt="Screenshot 2026-04-15 at 8 09 58 AM" src="https://github.com/user-attachments/assets/e8935c8b-b1c1-48bb-bd69-8845cc2e0613" /
+<img width="2938" height="1546" alt="image" src="https://github.com/user-attachments/assets/04e4b530-9904-4ec1-996f-025956be97e6" />
 
 ---
 
@@ -59,16 +59,17 @@ Check the auto generated resource map displaying the public and private subnets,
 
 >Sample:
 ---
-<img width="1259" height="396" alt="Screenshot 2026-04-15 at 8 10 32 AM" src="https://github.com/user-attachments/assets/97050c0c-6af8-4cdc-902a-90de6ce32205" /
+<img width="2518" height="792" alt="image" src="https://github.com/user-attachments/assets/8d796fd4-8541-405a-8a36-52d855ca7d01" />
 
 ---
-<img width="1258" height="447" alt="Screenshot 2026-04-15 at 8 10 45 AM" src="https://github.com/user-attachments/assets/72f44baf-4641-45d2-8076-ed234a5a0292" /
+<img width="2516" height="894" alt="image" src="https://github.com/user-attachments/assets/f3d89ddb-5e49-4b2e-b44b-c97728372cef" />
 
 ---
-<img width="1255" height="439" alt="Screenshot 2026-04-15 at 8 10 56 AM" src="https://github.com/user-attachments/assets/9c77ad59-e2fa-4c58-adff-4a7baa1711d2" /
+<img width="2510" height="878" alt="image" src="https://github.com/user-attachments/assets/dffec9e4-bda8-4143-ad3b-17aa79e151d1" />
 
 ---
-<img width="1263" height="443" alt="Screenshot 2026-04-15 at 8 11 06 AM" src="https://github.com/user-attachments/assets/e3475686-0037-4fe9-9fe3-7e678d898a31" /
+<img width="2526" height="886" alt="image" src="https://github.com/user-attachments/assets/15e28bc3-7ece-4ce0-9cbc-2ce314e5f44c" />
+
 
 ---
 
@@ -79,7 +80,7 @@ Check the auto generated resource map displaying the public and private subnets,
 
 >Sample:
 ---
-<img width="1458" height="544" alt="Screenshot 2026-04-15 at 8 14 44 AM" src="https://github.com/user-attachments/assets/4da0e9ed-1f6e-4625-888a-3fb250d86edd" /
+<img width="2916" height="1088" alt="image" src="https://github.com/user-attachments/assets/2d513d2c-7185-4afd-8131-1a78e675576f" />
 
 ---
   - **Private route table:** Traffic (0.0.0.0/0) directed to the NAT Gateway, ensuring controlled outbound access.
@@ -88,10 +89,10 @@ Check the auto generated resource map displaying the public and private subnets,
 
 >Sample:
 ---
-<img width="1459" height="567" alt="Screenshot 2026-04-15 at 8 16 09 AM" src="https://github.com/user-attachments/assets/ef915750-f1e6-4d9b-9047-76e163f19b9e" /
+<img width="2918" height="1134" alt="image" src="https://github.com/user-attachments/assets/b222e11c-5f00-4c77-8cdc-bbb0eb0c455c" />
 
 ---
-<img width="1459" height="563" alt="Screenshot 2026-04-15 at 8 16 24 AM" src="https://github.com/user-attachments/assets/404b09e2-3a72-4df6-9770-fb61d9bdd4c2" /
+<img width="2918" height="1126" alt="image" src="https://github.com/user-attachments/assets/a43c3521-f855-4836-bceb-0c92c9ec4d9b" />
 
 ---
 **Step 4: Launch an EC2 Instance in the Public Subnet.**  
@@ -115,7 +116,7 @@ Check the auto generated resource map displaying the public and private subnets,
 >Sample:
 
 ---
-<img width="1459" height="504" alt="Screenshot 2026-04-15 at 8 37 56 AM" src="https://github.com/user-attachments/assets/dd26e14c-098a-41f1-b245-4556f1aa6b2c" /
+<img width="1459" height="504" alt="Screenshot 2026-04-15 at 8 37 56 AM" src="https://github.com/user-attachments/assets/dd26e14c-098a-41f1-b245-4556f1aa6b2c" />
 
 ---
 
@@ -137,7 +138,7 @@ Check the auto generated resource map displaying the public and private subnets,
 >Sample:
 
 ---
-<img width="861" height="539" alt="Screenshot 2026-04-15 at 9 09 05 AM" src="https://github.com/user-attachments/assets/41310c24-73f6-4455-b85e-5aea7aff468f" /
+<img width="861" height="539" alt="Screenshot 2026-04-15 at 9 09 05 AM" src="https://github.com/user-attachments/assets/41310c24-73f6-4455-b85e-5aea7aff468f" />
 
 ---
     - Configure storage: 8 GiB, GP3
@@ -147,7 +148,7 @@ Check the auto generated resource map displaying the public and private subnets,
 >Sample:
 
 ---
-<img width="1459" height="505" alt="Screenshot 2026-04-15 at 9 12 53 AM" src="https://github.com/user-attachments/assets/d5d5dc0c-7e99-46a4-a5da-e065fe0527c7" /
+<img width="1459" height="505" alt="Screenshot 2026-04-15 at 9 12 53 AM" src="https://github.com/user-attachments/assets/d5d5dc0c-7e99-46a4-a5da-e065fe0527c7" />
 
 ---
 
@@ -170,10 +171,10 @@ Check the auto generated resource map displaying the public and private subnets,
 >Sample:
 
 ---
-<img width="1049" height="304" alt="Screenshot 2026-04-15 at 9 18 21 AM" src="https://github.com/user-attachments/assets/fa62d653-1c0e-4aa6-9f78-a6a9c1b0a77c" /
+<img width="1049" height="304" alt="Screenshot 2026-04-15 at 9 18 21 AM" src="https://github.com/user-attachments/assets/fa62d653-1c0e-4aa6-9f78-a6a9c1b0a77c" />
 
 ---
-<img width="1047" height="164" alt="Screenshot 2026-04-15 at 9 19 14 AM" src="https://github.com/user-attachments/assets/2d151aa5-b4d1-44f8-bc85-2a4ce5a988bd" /
+<img width="1047" height="164" alt="Screenshot 2026-04-15 at 9 19 14 AM" src="https://github.com/user-attachments/assets/2d151aa5-b4d1-44f8-bc85-2a4ce5a988bd" />
 
 ---
   - From the private instance, SSH from the public instance there, **SSH into the private instance** (using the private IP)
@@ -193,7 +194,7 @@ Check the auto generated resource map displaying the public and private subnets,
 
 >Sample:
 ---
-<img width="788" height="328" alt="Screenshot 2026-04-15 at 12 19 36 PM" src="https://github.com/user-attachments/assets/6d6a6e94-54a1-48ff-82a0-3dc7ad8db421" /
+<img width="788" height="328" alt="Screenshot 2026-04-15 at 12 19 36 PM" src="https://github.com/user-attachments/assets/6d6a6e94-54a1-48ff-82a0-3dc7ad8db421" />
 
 ---
 **Step 7: Configure Network ACLs for Additional Security.**  
@@ -206,10 +207,10 @@ Check the auto generated resource map displaying the public and private subnets,
 
 >Sample:
 ---
-<img width="1458" height="669" alt="Screenshot 2026-04-15 at 12 35 09 PM" src="https://github.com/user-attachments/assets/0be10d77-c977-459f-a0c1-eb2f9947d33b" /
+<img width="1458" height="669" alt="Screenshot 2026-04-15 at 12 35 09 PM" src="https://github.com/user-attachments/assets/0be10d77-c977-459f-a0c1-eb2f9947d33b" />
 
 ---
-<img width="1160" height="370" alt="Screenshot 2026-04-15 at 12 36 57 PM" src="https://github.com/user-attachments/assets/5905d988-2c98-4608-ae78-6125307bd546" /
+<img width="1160" height="370" alt="Screenshot 2026-04-15 at 12 36 57 PM" src="https://github.com/user-attachments/assets/5905d988-2c98-4608-ae78-6125307bd546" />
 
 ---
 
